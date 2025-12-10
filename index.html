@@ -13,3 +13,36 @@
 </a-scene>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AR.js A-Frame Location-based com GLB</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-ar-js@latest/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+    <a-assets>
+        <a-asset-item id="boneco" src="caminho/para/seu_boneco.glb"></a-asset-item>
+    </a-assets>
+
+    <a-scene 
+        vr-mode-ui='enabled: false' 
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;' 
+        renderer='antialias: true; alpha: true'
+    >
+        <a-camera gps-new-camera='gpsMinDistance: 20'></a-camera>
+
+        <a-entity 
+            gps-new-entity-place="latitude: -26.972852777056538; longitude: -48.63849844156049"
+            scale="10 10 10" 
+            
+            <a-gltf-model 
+                src="#boneco" 
+                rotation="0 0 0" 
+                position="0 0 0"
+            ></a-gltf-model>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
